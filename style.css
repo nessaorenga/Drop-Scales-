@@ -1,0 +1,118 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f0f4f8;
+  color: #333;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+header p {
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+
+.btn {
+  background-color: #ffcc00;
+  color: #333;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+section {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #007bff;
+}
+
+ul {
+  list-style: none;
+  margin-top: 15px;
+}
+
+ul li {
+  background: #e6f0ff;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.plan-card {
+  background: #e6f0ff;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 10px;
+}
+
+.plan-card.platinum {
+  background: #cce0ff;
+  border: 2px solid #007bff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: auto;
+}
+
+form input, form textarea {
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+footer {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.2em;
+  }
+
+  section {
+    padding: 40px 10px;
+  }
+}
