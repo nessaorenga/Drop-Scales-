@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drop Scales Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Basic reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    
+    body { display: flex; height: 100vh; background-color: #f4f7f9; }
+
+    /* Sidebar */
+    #sidebar { 
+      width: 250px; 
+      background-color: #007bff; 
+      color: white; 
+      transition: transform 0.3s ease; 
+      transform: translateX(-250px); 
+      position: fixed; 
+      height: 100%; 
+      z-index: 1000;
+    }
+    #sidebar.active { transform: translateX(0); }
+
+    #sidebar ul { list-style: none; padding: 20px; }
+    #sidebar ul li { padding: 15px 10px; cursor: pointer; }
+    #sidebar ul li:hover { background-color: #0056b3; }
+
+    /* Hamburger icon */
+    #hamburger {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1100;
+      color: #007bff;
+    }
+
+    /* Main content */
+    #content {
+      margin-left: 0;
+      padding: 20px;
+      flex: 1;
+      transition: margin-left 0.3s ease;
+    }
+    #content.active { margin-left: 250px; }
+
+    /* Section styling */
+    section { display: none; }
+    section.active { display: block; }
+
+    /* Dashboard content */
+    #dashboard { text-align: center; }
+    #dashboard img { width: 180px; margin-bottom: 20px; }
+    #dashboard h1 { margin-bottom: 15px; color: #007bff; }
+    #dashboard p { font-size: 16px; line-height: 1.6; max-width: 600px; margin: 0 auto; }
+
+    /* Email link */
+    a.email-link {
+      color: white;
+      background-color: #007bff;
+      padding: 8px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a.email-link:hover { background-color: #0056b3; }
+  </style>
+</head>
+<body>
+
+  <!-- Hamburger -->
+  <div id="hamburger">&#9776;</div>
+
+  <!-- Sidebar -->
+  <nav id="sidebar">
+    <ul>
+      <li data-target="dashboard">Dashboard</li>
+      <li data-target="plans">Investment Plans</li>
+      <li data-target="card">Platinum Investor Card</li>
+      <li data-target="verification">Portal Verification</li>
+      <li data-target="why">Why People Choose Drop Scales</li>
+      <li data-target="contact">Contact Us</li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div id="content">
+    <!-- Dashboard -->
+    <section id="dashboard" class="active">
+      <img src="logo.png" alt="Drop Scales Logo">
+      <h1>Drop Scales</h1>
+      <p>Drop Scales is a trusted crypto investment and financial agency dedicated to helping people grow their wealth effortlessly. Your funds are secure and your returns grow while you sleep.</p>
+    </section>
+
+    <!-- Investment Plans -->
+    <section id="plans">
+      <h2>Investment Plans</h2>
+      <div>
+        <h3>Starter Plan</h3>
+        <ul>
+          <li>Low entry deposit</li>
+          <li>Daily returns</li>
+          <li>Secure & stable growth</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Growth Plan</h3>
+        <ul>
+          <li>Higher returns</li>
+          <li>Faster growth</li>
+          <li>Full analytics</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Platinum Investor Plan</h3>
+        <ul>
+          <li>Maximum ROI</li>
+          <li>Priority withdrawals</li>
+          <li>VIP manager</li>
+          <li>Access to exclusive investment pools</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Platinum Card -->
+    <section id="card">
+      <h2>Platinum Investor Card</h2>
+      <ul>
+        <li>Priority access to investment pools</li>
+        <li>Instant withdrawal clearance</li>
+        <li>Priority customer care</li>
+        <li>Elite verification badge</li>
+        <li>Highest daily returns</li>
+        <li>Membership ID</li>
+      </ul>
+    </section>
+
+    <!-- Portal Verification -->
+    <section id="verification">
+      <h2>Portal Verification</h2>
+      <ul>
+        <li>Protects your personal investment account</li>
+        <li>Prevents fraud and unauthorized access</li>
+        <li>Gives you an official approval form</li>
+        <li>Ensures smooth deposits and withdrawals</li>
+        <li>Priority support & investor security</li>
+      </ul>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why">
+      <h2>Why People Choose Drop Scales</h2>
+      <ul>
+        <li>High-profit returns — Faster than traditional investments</li>
+        <li>Secure platform — Your funds stay safe</li>
+        <li>Passive income opportunity — Zero effort, maximum results</li>
+        <li>Flexible investment plans — Start small or go big</li>
+        <li>Fast withdrawals & seamless transactions</li>
+        <li>Expert management team & proven record</li>
+      </ul>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Your message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+      <p>Email: <a href="mailto:dropscales@gmail.com" class="email-link">dropscales@gmail.com</a></p>
+    </section>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const sidebar = document.getElementById('sidebar');
+    const content = document.getElementById('content');
+    const sections = document.querySelectorAll('section');
+    const sidebarLinks = document.querySelectorAll('#sidebar ul li');
+
+    // Toggle sidebar
+    hamburger.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+      content.classList.toggle('active');
+    });
+
+    // Show section on sidebar click
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        const target = link.getAttribute('data-target');
+        sections.forEach(section => {
+          section.classList.remove('active');
+        });
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
