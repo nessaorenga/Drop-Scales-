@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drop Scales</title>
+<style>
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Full-screen sections */
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #000; /* Black background */
+  color: #fff;
+}
+
+section {
+  display: none;
+  width: 100%;
+  height: 100vh; /* Full height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertical center */
+  align-items: center;     /* Horizontal center */
+  text-align: center;
+  padding: 20px;
+}
+
+section.active {
+  display: flex;
+}
+
+/* Logo */
+#dashboard img {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+/* Headings */
+h1, h2 {
+  color: #ffcc00;
+  margin-bottom: 20px;
+}
+
+/* Menu (Three dots) */
+nav {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+#menuButton {
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+  color: #ffcc00;
+}
+
+#menuItems {
+  display: none;
+  background-color: #111;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+#menuItems button {
+  display: block;
+  width: 220px;
+  padding: 12px;
+  border: none;
+  background-color: #111;
+  color: #ffcc00;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#menuItems button:hover {
+  background-color: #333;
+}
+
+/* List items */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+li {
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+/* Form styling */
+form input, form textarea {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px;
+  margin: 8px 0;
+  background-color: #222;
+  border: 1px solid #555;
+  color: #fff;
+  border-radius: 5px;
+}
+
+form button {
+  padding: 12px 20px;
+  background-color: #ffcc00;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span id="menuButton">&#8942;</span> <!-- Three dots -->
+  <div id="menuItems">
+    <button data-section="dashboard">Dashboard</button>
+    <button data-section="plans">Investment Plans</button>
+    <button data-section="card">Platinum Investor Card</button>
+    <button data-section="verification">Portal Verification</button>
+    <button data-section="why">Why Choose Us</button>
+    <button data-section="contact">Contact Us</button>
+  </div>
+</nav>
+
+<section id="dashboard" class="active">
+  <img src="logo.png" alt="Drop Scales Logo">
+  <h1>Drop Scales</h1>
+  <p>Trusted crypto investment and financial agency helping you grow your wealth effortlessly.</p>
+</section>
+
+<section id="plans">
+  <h2>Investment Plans</h2>
+  <ul>
+    <li>Starter Plan — Low entry deposit, daily returns</li>
+    <li>Growth Plan — Higher returns, faster growth</li>
+    <li>Platinum Investor Plan — Maximum ROI, priority withdrawals</li>
+  </ul>
+</section>
+
+<section id="card">
+  <h2>Platinum Investor Card</h2>
+  <ul>
+    <li>Priority access to investment pools</li>
+    <li>Instant withdrawal clearance</li>
+    <li>Priority customer care</li>
+    <li>Elite verification badge</li>
+  </ul>
+</section>
+
+<section id="verification">
+  <h2>Portal Verification</h2>
+  <ul>
+    <li>Protects your account</li>
+    <li>Prevents fraud</li>
+    <li>Ensures smooth deposits & withdrawals</li>
+  </ul>
+</section>
+
+<section id="why">
+  <h2>Why Choose Drop Scales</h2>
+  <ul>
+    <li>High-profit returns</li>
+    <li>Secure platform</li>
+    <li>Passive income opportunity</li>
+    <li>Flexible investment plans</li>
+    <li>Fast withdrawals & seamless transactions</li>
+  </ul>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <form>
+    <input type="text" placeholder="Name" required>
+    <input type="email" placeholder="Email" required>
+    <textarea placeholder="Your message" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+  <p>Email us: <a href="mailto:dropscales@gmail.com" style="color:#ffcc00;">dropscales@gmail.com</a></p>
+</section>
+
+<script>
+// Three-dot menu functionality
+const menuButton = document.getElementById('menuButton');
+const menuItems = document.getElementById('menuItems');
+const buttons = menuItems.querySelectorAll('button');
+const sections = document.querySelectorAll('section');
+
+menuButton.addEventListener('click', () => {
+  menuItems.style.display = menuItems.style.display === 'block' ? 'none' : 'block';
+});
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    sections.forEach(sec => sec.classList.remove('active'));
+    document.getElementById(btn.dataset.section).classList.add('active');
+    menuItems.style.display = 'none';
+  });
+});
+</script>
+
+</body>
+</html>
